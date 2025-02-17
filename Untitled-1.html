@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .envelope {
+            width: 480px; 
+            height: 320px;
+            background: #ffb6c1;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+        }
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #ff9aa2;
+            clip-path: polygon(0% 0%, 50% 40%, 100% 0%, 100% 100%, 0% 100%);
+            transform-origin: top;
+            transition: transform 0.6s ease-in-out;
+            z-index: 3;
+        }
+        .bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #ff758c;
+            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+        }
+        .letter-content {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            width: 460px; 
+            height: 600px; 
+            padding: 25px; 
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 16px; /* Smaller text */
+            line-height: 1.4; /* Adjusted spacing */
+            opacity: 0;
+            transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+            z-index: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .tap-text {
+            position: absolute;
+            bottom: -30px;
+            font-size: 16px;
+            color: white;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+        .open .envelope {
+            transform: translateY(180px);
+            opacity: 0;
+        }
+        .open .flap {
+            transform: rotateX(180deg);
+        }
+        .open .letter-content {
+            transform: translate(-50%, -10%);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" onclick="showLetter()">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="bottom"></div>
+            <h2 class="tap-text">Tap to Open</h2>
+        </div>
+        <div class="letter-content" id="letter-content">
+            <h3>To My Beloved Elijah</h3>
+            <p>
+                Every moment you’re not here, I feel<br>
+                A missing piece that I can’t conceal.<br>
+                The warmth of your touch, your gentle sway,<br>
+                I long for you more with each passing day.<br><br>
+
+                Your smile so bright, your eyes so deep,<br>
+                In my heart, your love I keep.<br>
+                I worry for you, though you’re so strong,<br>
+                Through life's storms, you’ve stayed so long.<br><br>
+
+                No challenge too great, no mountain too tall,<br>
+                You rise above them, you conquer it all.<br>
+                And though I can’t always be by your side,<br>
+                In my heart, you’ll always reside.<br><br>
+
+                I wish to help, in any way I can,<br>
+                To lift you up, to help you stand.<br>
+                Through every struggle, I’m here to cheer,<br>
+                My love for you will always be near.<br><br>
+
+                So know this truth, no matter how far,<br>
+                I’m with you, forever, no matter where you are.<br>
+                My love is endless, my heart is true,<br>
+                Beloved, I’m always here for you.<br><br>
+
+                <em>- Toshi, Feb 17, 2025</em>
+            </p>
+        </div>
+    </div>
+    <script>
+        function showLetter() {
+            document.querySelector('.container').classList.add('open');
+        }
+    </script>
+</body>
+</html>
